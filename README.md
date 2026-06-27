@@ -6,7 +6,7 @@ The agent takes a raw security alert — a phishing email, a brute-force attempt
 
 This is the kind of thing I would assume Ontinue's team does manually at scale. Wanted to see what it looks like when you automate it with LangGraph.
 
-> The OpenAI structured output schemas (the part that makes the LLM return clean JSON every time) were worked out with [Claude Sonnet 4.6](https://www.anthropic.com/claude) — getting `additionalProperties: false` right across nested Pydantic models was not fun to debug alone...s
+> The OpenAI structured output schemas (the part that makes the LLM return clean JSON every time) were worked out with [Claude Sonnet 4.6](https://www.anthropic.com/claude) — getting `additionalProperties: false` right across nested Pydantic models was not fun to debug alone...
 
 ---
 
@@ -35,6 +35,10 @@ Tools:
 - `lookup_ip_reputation` — hits the real [AbuseIPDB API](https://www.abuseipdb.com) if a key is set, falls back to mock otherwise
 - `check_email_headers` — parses SPF/DKIM/DMARC signals
 - `search_past_incidents` — searches simulated incident history
+
+---
+
+![Security Alert Triage Agent demo](example.png)
 
 ---
 
